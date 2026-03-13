@@ -19,7 +19,7 @@ A complete Angular 17 website for Sri Pada Homestay, Tirumala.
 npm install
 ng serve
 ```
-Open [http://localhost:4200](http://localhost:4200)
+Open https://sripadaresidency.netlify.app/
 
 ### Build for Production
 ```bash
