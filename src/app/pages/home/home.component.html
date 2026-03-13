@@ -1,0 +1,184 @@
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+
+    <div class="hero-tag animate-1">✦ Near Tirumala ✦</div>
+    <h1 class="animate-2">
+      Sri Pada
+      <span>Residency</span>
+    </h1>
+    <p class="hero-sub animate-3">
+      Experience divine comfort and traditional hospitality<br>
+      near the sacred temple of Lord Venkateshwara.
+    </p>
+    <div class="hero-btns animate-4">
+      <a routerLink="/rooms" class="btn-primary">Explore Rooms →</a>
+      <a routerLink="/about" class="btn-outline-white">About Us</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    @for (stat of stats; track stat.label) {
+      <div class="stat animate-4">
+        <div class="stat-num">{{ stat.num }}</div>
+        <div class="stat-label">{{ stat.label }}</div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ===== ROOMS PREVIEW ===== -->
+<section class="rooms-section">
+  <p class="sec-label">✦ Accommodation ✦</p>
+  <h2 class="sec-title">Our Room <span>Categories</span></h2>
+  <div class="divider"></div>
+
+  <div class="rooms-grid">
+    @for (room of rooms; track room.id) {
+      <div class="room-card card">
+        <div class="room-img">
+  <img [src]="'assets/images/' + room.id + '.jpg'" [alt]="room.name">
+        
+  @if (room.badge) {
+    <div class="room-badge">{{ room.badge }}</div>
+  }
+</div>
+         
+        <div class="room-info">
+          <h3 class="room-name">{{ room.name }}</h3>
+          <p class="room-desc">{{ room.shortDesc }}</p>
+          <div class="room-features">
+            @for (a of room.amenities.slice(0,4); track a) {
+              <span class="feat-tag">{{ a }}</span>
+            }
+          </div>
+          <div class="room-price-row">
+            <div class="room-price">
+              <span class="price-num">₹{{ room.price | number }}</span>
+              <span class="price-unit">/ {{ room.priceUnit }}</span>
+            </div>
+            <a routerLink="/rooms" class="btn-outline">View Details</a>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section class="why-section">
+  <p class="sec-label">✦ Why Sri Pada ✦</p>
+  <h2 class="sec-title">The <span>Divine</span> Difference</h2>
+  <div class="divider"></div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">📍</div>
+      <h4>Prime Location</h4>
+      <p>Walking distance from the Alipiri Gate. No long commutes — spend more time in prayer and less time travelling.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🍽️</div>
+      <h4>Pure Vegetarian</h4>
+      <p>Sattvic, vegetarian meals available. Our kitchen maintains strict standards of purity befitting a pilgrim's stay.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔒</div>
+      <h4>Safe & Secure</h4>
+      <p>24/7 security, CCTV, and friendly staff ensure a safe environment for families, women, and senior pilgrims.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💰</div>
+      <h4>Best Value</h4>
+      <p>Affordable rates without compromising comfort. Multiple room categories to suit every pilgrim's budget.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews-section">
+  <p class="sec-label">✦ Guest Experiences ✦</p>
+  <h2 class="sec-title">What Our <span>Guests Say</span></h2>
+  <div class="divider"></div>
+
+  <div class="reviews-grid">
+    @for (review of reviews; track review.name) {
+      <div class="review-card">
+        <div class="review-stars">
+          @for (s of getStars(review.rating); track $index) {
+            <span [style.color]="s === '★' ? 'var(--gold)' : '#ccc'">{{ s }}</span>
+          }
+        </div>
+        <p class="review-text">"{{ review.text }}"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">{{ review.initial }}</div>
+          <div>
+            <div class="reviewer-name">{{ review.name }}</div>
+            <div class="reviewer-loc">{{ review.location }}</div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ===== FEEDBACK FORM ===== -->
+<section class="feedback-section" id="feedback">
+  <p class="sec-label">✦ Share Your Experience ✦</p>
+  <h2 class="sec-title">Leave a <span>Review</span></h2>
+  <div class="divider"></div>
+
+  <div class="feedback-card">
+    <h3>🙏 We Value Your Words</h3>
+
+    @if (feedbackSubmitted) {
+      <div class="success-msg">
+        ✅ Thank you for your feedback! Your review means the world to us.! 🙏
+      </div>
+    } @else {
+      <form (ngSubmit)="submitFeedback()" #fbForm="ngForm">
+        <div class="ff-row">
+          <div class="ff-group">
+            <label>Your Name *</label>
+            <input type="text" [(ngModel)]="feedback.name" name="name" placeholder="Full name" required>
+          </div>
+          <div class="ff-group">
+            <label>Email Address</label>
+            <input type="email" [(ngModel)]="feedback.email" name="email" placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="ff-group">
+          <label>Room You Stayed In</label>
+          <select [(ngModel)]="feedback.roomType" name="roomType">
+            <option>Standard Room</option>
+            <option>Deluxe Room</option>
+            <option>Family Suite</option>
+          </select>
+        </div>
+        <div class="ff-group">
+          <label>Your Rating *</label>
+          <div class="star-rating">
+            @for (star of [1,2,3,4,5]; track star) {
+              <span class="star"
+                    [class.filled]="star <= feedback.rating"
+                    (click)="setRating(star)">★</span>
+            }
+          </div>
+        </div>
+        <div class="ff-group">
+          <label>Your Review *</label>
+          <textarea [(ngModel)]="feedback.message" name="message"
+                    placeholder="Tell us about your stay at Sri Pada Residency..."
+                    rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary ff-submit" [disabled]="fbForm.invalid || feedback.rating === 0">
+          Submit Feedback 🙏
+        </button>
+      </form>
+    }
+  </div>
+</section>

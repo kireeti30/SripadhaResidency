@@ -1,0 +1,91 @@
+<!-- HERO -->
+<section class="about-hero">
+  <div class="about-hero-bg"></div>
+  <div class="about-hero-glow"></div>
+  <div class="about-hero-content">
+    <div class="hero-tag animate-1">✦ Our Story ✦</div>
+    <h1 class="animate-2">About <span>Sri Pada</span><br>Residency</h1>
+    <p class="animate-3">
+    A hotel run by local hosts since 2020, welcoming pilgrims 
+    with warmth and hospitality while helping 
+    make their sacred journey comfortable and memorable.
+    </p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="story-grid">
+    <div class="story-img">
+      <!-- Replace with: <img src="assets/images/about-hotel.jpg" alt="Sri Pada Homestay"> -->
+      <div class="story-img-placeholder">🛕</div>
+      <div class="story-img-badge">
+        <span class="badge-num">5+</span>
+        <span class="badge-label">Years of Service</span>
+      </div>
+    </div>
+    <div class="story-text">
+      <p class="sec-label" style="text-align:left">✦ Our Story ✦</p>
+      <h2>Born from <span>Devotion</span>,<br>Built with Love</h2>
+      <p>Sri Pada  was founded in 2020, driven by a heartfelt desire to offer weary pilgrims a comfortable and affordable home away from home near the sacred Tirumala hills.</p>
+      <p>Named after the divine footprints of Lord Venkateswara, our Residency embodies the spirit of <em>Seva</em> — selfless service. Every room, every meal, and every interaction is an act of devotion to our Lord and our guests.</p>
+      <p>Over a decade, we have welcomed over 5,000 guests from across India and the world, each one becoming part of our extended family. Our staff are not just employees — they are devotees who take pride in making every stay a blessed experience.</p>
+
+      <div class="story-stats">
+        <div class="s-stat">
+          <span class="s-num">20</span>
+          <span class="s-label">Rooms</span>
+        </div>
+        <div class="s-stat">
+          <span class="s-num">6K+</span>
+          <span class="s-label">Guests</span>
+        </div>
+        <div class="s-stat">
+          <span class="s-num">4.1★</span>
+          <span class="s-label">Rating</span>
+        </div>
+        <div class="s-stat">
+          <span class="s-num">5+</span>
+          <span class="s-label">Years</span>
+        </div>
+      </div>
+
+      <div class="story-btns">
+        <a routerLink="/contact" class="btn-primary">Contact Us</a>
+        <a routerLink="/rooms" class="btn-outline">Our Rooms</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <p class="sec-label">✦ What We Stand For ✦</p>
+  <h2 class="sec-title">Our Core <span>Values</span></h2>
+  <div class="divider"></div>
+
+  <div class="values-grid">
+    @for (v of values; track v.title) {
+      <div class="value-card">
+        <div class="value-icon">{{ v.icon }}</div>
+        <h4>{{ v.title }}</h4>
+        <p>{{ v.desc }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <h2>Ready for Your <span>Divine Journey?</span></h2>
+    <p>Book a room at Sri Pada Residency and experience the warmth of traditional South Indian hospitality near the sacred Tirumala temple.</p>
+    <div class="cta-btns">
+      <a routerLink="/rooms" class="btn-primary">Explore Rooms</a>
+      <a routerLink="/contact" class="btn-outline-white">Contact Us</a>
+    </div>
+  </div>
+</section>

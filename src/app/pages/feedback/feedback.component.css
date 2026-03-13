@@ -1,0 +1,113 @@
+/* HERO */
+.feedback-hero {
+  min-height: 40vh;
+  position: relative;
+  display: flex; align-items: center;
+  padding: 120px 8% 60px;
+  margin-top: -68px;
+  overflow: hidden;
+}
+
+.feedback-hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #2C0D00 0%, #5C2A08 50%, #3D1C08 100%);
+}
+
+.feedback-hero-content { position: relative; z-index: 1; }
+
+.feedback-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  color: #fff; line-height: 1.1; margin-bottom: 14px;
+}
+
+.feedback-hero h1 span { color: #C9973A; }
+
+.feedback-hero p {
+  color: rgba(255,255,255,0.72);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+}
+
+/* FORM SECTION */
+.feedback-section { background: var(--cream2); padding: 80px 8%; }
+
+.feedback-card {
+  max-width: 700px; margin: 0 auto;
+  background: var(--white);
+  border-radius: 18px; padding: 50px 44px;
+  box-shadow: 0 8px 40px rgba(61,28,8,0.1);
+}
+
+.ff-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.ff-group { margin-bottom: 20px; }
+
+.ff-group label {
+  display: block; color: var(--text);
+  font-weight: 700; font-size: 0.86rem;
+  margin-bottom: 7px;
+}
+
+.ff-group input,
+.ff-group select,
+.ff-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--cream2);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  outline: none;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.ff-group input:focus,
+.ff-group select:focus,
+.ff-group textarea:focus {
+  border-color: var(--gold);
+  background: var(--white);
+}
+
+.ff-group textarea { resize: vertical; }
+
+.star-rating { display: flex; gap: 8px; margin-top: 4px; }
+
+.star {
+  font-size: 2.4rem;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.15s, transform 0.15s;
+  line-height: 1;
+}
+
+.star.filled { color: var(--gold); }
+.star:hover { transform: scale(1.15); color: var(--gold); }
+
+.ff-submit {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+.success-msg {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--saffron);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .feedback-card { padding: 32px 20px; }
+  .ff-row { grid-template-columns: 1fr; }
+}

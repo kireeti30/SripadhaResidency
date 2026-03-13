@@ -1,0 +1,52 @@
+<nav class="navbar" [class.scrolled]="scrolled">
+  <a class="nav-logo" routerLink="/" (click)="closeMenu()">
+    
+      <img src="assets/images/logo.png" alt="Sri Pada Logo">
+    
+    <div class="nav-logo-text">
+      <strong>Sri Pada</strong>
+      <span>Residency· Tirupati</span>
+    </div>
+  </a>
+
+  <ul class="nav-links" [class.open]="menuOpen">
+    <li>
+      <a routerLink="/"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact:true}"
+         (click)="closeMenu()">Home</a>
+    </li>
+    <li>
+      <a routerLink="/rooms"
+         routerLinkActive="active"
+         (click)="closeMenu()">Rooms</a>
+    </li>
+    <li>
+      <a routerLink="/about"
+         routerLinkActive="active"
+         (click)="closeMenu()">About</a>
+    </li>
+    <li>
+      <a routerLink="/contact"
+         routerLinkActive="active"
+         (click)="closeMenu()">Contact</a>
+    </li>
+    <li>
+  <a routerLink="/feedback"
+     routerLinkActive="active"
+     (click)="closeMenu()">Feedback</a>
+</li>
+    <li>
+  <a class="nav-book-btn"
+     href="https://www.treebo.com/hotels-in-tirupati/treebo-sripadha-residency-alipiri-road-a-p-housing-board-colony-2840/"
+     target="_blank"
+     (click)="closeMenu()">Book Now</a>
+</li>
+  </ul>
+
+  <button class="hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Toggle menu">
+    <span [class.open]="menuOpen"></span>
+    <span [class.open]="menuOpen"></span>
+    <span [class.open]="menuOpen"></span>
+  </button>
+</nav>

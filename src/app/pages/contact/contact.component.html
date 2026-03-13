@@ -1,0 +1,124 @@
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="contact-hero-bg"></div>
+  <div class="contact-hero-content">
+    <div class="hero-tag animate-1">✦ Reach Us ✦</div>
+    <h1 class="animate-2">Contact <span>Sri Pada</span><br>Residency</h1>
+    <p class="animate-3">We're always here to help plan your divine journey to Tirumala.</p>
+  </div>
+</section>
+
+<!-- CONTACT MAIN -->
+<section class="contact-section">
+  <div class="contact-grid">
+
+    <!-- LEFT: Cards + Social -->
+    <div class="contact-left">
+      <h3>Get in <span>Touch</span></h3>
+      <p class="contact-intro">Reach us through any of the channels below. Our team is available every day to assist you with bookings, queries, and directions.</p>
+
+      <div class="contact-cards">
+        @for (card of contactCards; track card.title) {
+          <a class="contact-card" [href]="card.href" target="_blank">
+            <div class="contact-icon" [class]="card.iconClass">{{ card.icon }}</div>
+            <div class="contact-info">
+              <h4>{{ card.title }}</h4>
+              @for (line of card.lines; track line) {
+                <p>{{ line }}</p>
+              }
+              <small>{{ card.note }}</small>
+            </div>
+          </a>
+        }
+      </div>
+
+      <div class="social-btns">
+        <button class="btn-wa-lg" (click)="openWhatsApp()">
+          💬 Chat on WhatsApp
+        </button>
+        <button class="btn-ig-lg" (click)="openInstagram()">
+          📸 Follow on Instagram
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Map + Address -->
+    <div class="contact-right">
+      <div class="map-box">
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.121413430169!2d79.41081869678958!3d13.650377600000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4b6561843c27%3A0x8638ace7bd037ea0!2sTreebo%20Sripadha%20Residency!5e0!3m2!1sen!2sin!4v1773398956802!5m2!1sen!2sin" 
+          width="600" height="330" 
+            
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Sri Pada Residency Location">
+          </iframe>
+        </div>
+        <div class="map-info">
+          <div class="map-address">
+            <span class="map-pin">📍</span>
+            <div>
+              <h4>Sri Pada Homestay</h4>
+              <p>Near Alipiri Gate, Tirumala Hills Road,<br>Tirupati – 517 501, Andhra Pradesh, India</p>
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/LpX8mQ1MCj9D29m88"
+             target="_blank"
+             class="directions-btn">
+            🗺️ Get Directions
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="inquiry-section">
+  <p class="sec-label">✦ Write to Us ✦</p>
+  <h2 class="sec-title">Send an <span>Enquiry</span></h2>
+  <div class="divider"></div>
+
+  <div class="inquiry-form-wrap">
+    @if (formSubmitted) {
+      <div class="form-success">
+        ✅ Thank you for reaching out! Opening WhatsApp to send your message. We'll respond shortly. 🙏
+      </div>
+    } @else {
+      <form class="inquiry-form" (ngSubmit)="submitInquiry()" #iqForm="ngForm">
+        <div class="iq-row">
+          <div class="iq-group">
+            <label>Full Name *</label>
+            <input type="text" [(ngModel)]="inquiry.name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="iq-group">
+            <label>Phone Number *</label>
+            <input type="tel" [(ngModel)]="inquiry.phone" name="phone" placeholder="+91 00000 00000" required>
+          </div>
+        </div>
+        <div class="iq-row">
+          <div class="iq-group">
+            <label>Email Address</label>
+            <input type="email" [(ngModel)]="inquiry.email" name="email" placeholder="your@email.com">
+          </div>
+          <div class="iq-group">
+            <label>Subject *</label>
+            <input type="text" [(ngModel)]="inquiry.subject" name="subject" placeholder="e.g. Room Booking Enquiry" required>
+          </div>
+        </div>
+        <div class="iq-group">
+          <label>Message *</label>
+          <textarea [(ngModel)]="inquiry.message" name="message"
+                    placeholder="Tell us your check-in dates, room preference, number of guests, or any other queries..."
+                    rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary iq-submit" [disabled]="iqForm.invalid">
+          💬 Send via WhatsApp
+        </button>
+      </form>
+    }
+  </div>
+</section>

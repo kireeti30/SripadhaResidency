@@ -1,0 +1,76 @@
+<!-- HERO -->
+<section class="feedback-hero">
+  <div class="feedback-hero-bg"></div>
+  <div class="feedback-hero-content">
+    <div class="hero-tag animate-1">✦ Share Your Experience ✦</div>
+    <h1 class="animate-2">Your <span>Feedback</span><br>Matters</h1>
+    <p class="animate-3">Help us serve every pilgrim better. Your words guide us.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="feedback-section">
+  <p class="sec-label">✦ We Value Your Words ✦</p>
+  <h2 class="sec-title">Leave a <span>Review</span></h2>
+  <div class="divider"></div>
+
+  <div class="feedback-card">
+
+    @if (feedbackSubmitted) {
+      <div class="success-msg">
+        ✅ Thank you for your feedback!<br>
+        Your review means the world to us.<br>
+        Jai Venkatesha! 🙏
+      </div>
+    } @else {
+      <form (ngSubmit)="submitFeedback()" #fbForm="ngForm">
+
+        <div class="ff-row">
+          <div class="ff-group">
+            <label>Your Name *</label>
+            <input type="text" [(ngModel)]="feedback.name"
+                   name="name" placeholder="Full name" required>
+          </div>
+          <div class="ff-group">
+            <label>Email Address</label>
+            <input type="email" [(ngModel)]="feedback.email"
+                   name="email" placeholder="your@email.com">
+          </div>
+        </div>
+
+        <div class="ff-group">
+          <label>Room You Stayed In</label>
+          <select [(ngModel)]="feedback.roomType" name="roomType">
+            <option>Standard Room</option>
+            <option>Deluxe Room</option>
+            <option>Family Suite</option>
+          </select>
+        </div>
+
+        <div class="ff-group">
+          <label>Your Rating *</label>
+          <div class="star-rating">
+            @for (star of [1,2,3,4,5]; track star) {
+              <span class="star"
+                    [class.filled]="star <= feedback.rating"
+                    (click)="setRating(star)">★</span>
+            }
+          </div>
+        </div>
+
+        <div class="ff-group">
+          <label>Your Review *</label>
+          <textarea [(ngModel)]="feedback.message" name="message"
+                    placeholder="Tell us about your stay at Sri Pada Homestay..."
+                    rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary ff-submit"
+                [disabled]="fbForm.invalid || feedback.rating === 0">
+          Submit Feedback 🙏
+        </button>
+
+      </form>
+    }
+  </div>
+</section>

@@ -1,0 +1,167 @@
+<!-- HERO -->
+<section class="rooms-hero">
+  <div class="rooms-hero-bg"></div>
+  <div class="rooms-hero-content">
+    <div class="hero-tag animate-1">✦ Accommodation ✦</div>
+    <h1 class="animate-2">Our <span>Rooms</span> &<br>Suites</h1>
+    <p class="animate-3">
+      Thoughtfully designed for divine comfort and peaceful rest after your darshan.
+    </p>
+  </div>
+</section>
+
+
+<!-- ROOMS LIST -->
+<section class="rooms-list">
+
+  @for (room of rooms; track room.id; let i = $index) {
+
+    <div class="room-detail" [class.reverse]="i % 2 !== 0">
+
+      <!-- IMAGE SIDE -->
+      <div class="room-detail-img"
+           [style.background]="'linear-gradient(135deg,' + room.gradientFrom + ',' + room.gradientTo + ')'">
+
+        <!-- ROOM IMAGE -->
+        <img
+          class="room-detail-photo"
+          [src]="'assets/images/' + room.id + '.jpg'"
+          [alt]="room.name">
+
+        <!-- ROOM BADGE -->
+        @if (room.badge) {
+          <div class="room-detail-badge">{{ room.badge }}</div>
+        }
+
+      </div>
+
+
+      <!-- INFO SIDE -->
+      <div class="room-detail-info">
+
+        <div class="room-tag">{{ room.tag }}</div>
+
+        <h2>{{ room.name }}</h2>
+
+        <p class="room-full-desc">
+          {{ room.fullDesc }}
+        </p>
+
+
+        <!-- AMENITIES -->
+        <div class="amenities-grid">
+          @for (a of room.amenities; track a) {
+            <span class="amenity">{{ a }}</span>
+          }
+        </div>
+
+
+        <!-- PRICE + BOOK BUTTONS -->
+        <div class="price-block">
+
+          <div class="price-display">
+            <span class="price-big">₹{{ room.price | number }}</span>
+            <span class="price-per">/ {{ room.priceUnit }}</span>
+          </div>
+
+          <div class="book-btns">
+
+            <button class="btn-mmt" (click)="bookOnMakeMyTrip(room)">
+              🏨 Book on Treebo
+            </button>
+
+            <button class="btn-wa"
+                    (click)="bookOnWhatsApp(room)">
+              💬 WhatsApp
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  }
+
+</section>
+
+
+
+<!-- POLICIES SECTION -->
+<section class="policies-section">
+
+  <p class="sec-label">✦ Good to Know ✦</p>
+
+  <h2 class="sec-title">
+    Stay <span>Policies</span>
+  </h2>
+
+  <div class="divider"></div>
+
+
+  <div class="policies-grid">
+
+    <div class="policy-card">
+      <div class="policy-icon">⏰</div>
+      <h4>Check-in / Check-out</h4>
+      <p>
+        Check-in: 12:00 PM onwards<br>
+        Check-out: 11:00 AM<br>
+        Early/late available on request.
+      </p>
+    </div>
+
+
+    <div class="policy-card">
+      <div class="policy-icon">🥗</div>
+      <h4>Pure Vegetarian</h4>
+      <p>
+        We maintain a strictly vegetarian environment.
+        Outside non-veg food is not permitted.
+      </p>
+    </div>
+
+
+    <div class="policy-card">
+      <div class="policy-icon">🚭</div>
+      <h4>No Smoking / Alcohol</h4>
+      <p>
+        Sri Pada Homestay is a smoke-free
+        and alcohol-free property.
+      </p>
+    </div>
+
+
+    <div class="policy-card">
+      <div class="policy-icon">🐾</div>
+      <h4>No Pets</h4>
+      <p>
+        Pets are not permitted on the property.
+      </p>
+    </div>
+
+
+    <div class="policy-card">
+      <div class="policy-icon">💳</div>
+      <h4>Payment</h4>
+      <p>
+        We accept Cash, UPI, and all major cards.
+        Advance payment required for booking.
+      </p>
+    </div>
+
+
+    <div class="policy-card">
+      <div class="policy-icon">↩️</div>
+      <h4>Cancellation</h4>
+      <p>
+        Free cancellation up to 24 hours
+        before check-in.
+      </p>
+    </div>
+
+  </div>
+
+</section>

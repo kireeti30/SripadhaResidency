@@ -1,0 +1,123 @@
+.footer {
+  background: #1A0E05;
+  color: rgba(255,255,255,0.68);
+  padding: 64px 8% 28px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 44px;
+  margin-bottom: 44px;
+}
+
+
+/* BRAND */
+.footer-logo {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px;
+}
+
+.footer-logo-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, #C8520A, #C9973A);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+
+.footer-brand h3 {
+  font-family: 'Playfair Display', serif;
+  color: #C9973A;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.footer-brand > .footer-logo > div > span {
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+}
+
+.footer-brand p {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+.footer-socials { display: flex; gap: 10px; }
+
+.social-icon {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.social-icon:hover {
+  background: #C8520A;
+  border-color: #C8520A;
+  transform: translateY(-2px);
+}
+
+/* COLUMNS */
+.footer-col h4 {
+  color: #E8C46A;
+  font-size: 0.72rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+}
+
+.footer-col a {
+  display: block;
+  color: rgba(255,255,255,0.58);
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 0.88rem;
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.footer-col a:hover {
+  color: #E8C46A;
+  padding-left: 4px;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 22px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.35);
+}
+
+.footer-credit {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-credit span {
+  color: #C9973A;
+  font-weight: 700;
+}
+.footer-bottom span { color: #C9973A; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer { padding: 44px 5% 24px; }
+}
